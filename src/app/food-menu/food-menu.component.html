@@ -1,0 +1,67 @@
+<div class="main-content">
+    <nav class="navbar navbar-fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand py-0 text-center pull-left" href="/home" style="float: left;">
+          Hotel Name & Logo
+          <!-- <img src="assets/images/logo.png" class="navbar-brand-img" alt=""> -->
+        </a>
+        <ul class="nav" style="float: right;">
+          <li class="nav-item">
+            <a class="nav-link text-dark" [routerLink]="['/']">
+              <div class="media align-items-center">
+                <span>Logout</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  
+      <div class="container-fluid mt--7 mt-3 mb-5">
+        <div class="row">
+
+            
+          <div class="col-1"></div>
+  
+          <div class="col-10">
+  
+            <div class="card border-left-primary shadow py-2" style="height:120%;">
+              <div class="card-body">
+                <div class="header" style="font-size:25px;font-weight:bold;text-align: center;">
+                    Food Menu 
+                 </div>
+                 <br>
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Food Item</th>
+                        <th scope="col">Price</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let foodItems of foodMenu;let i=index">
+                        <td>{{i+1}}</td>
+                        <td><input type="text" [(ngModel)]="foodItems.food"  [disabled]="!foodItems.isEditable"></td>
+                        <td><input type="text" [(ngModel)]="foodItems.price"  [disabled]="!foodItems.isEditable"></td>
+                        <td> 
+                          <button (click)="foodItems.isEditable=!foodItems.isEditable" *ngIf="!foodItems.isEditable">Edit</button>
+                          <button *ngIf="foodItems.isEditable" (click)="foodItems.isEditable=!foodItems.isEditable">Save</button>
+                        </td>
+                        <td><a (click)="removeItem(foodItems)"><i class="fa fa-times"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <button class="btn btn-primary" (click)="addRow()">Add Row</button>
+                  
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="col-1"></div>
+      </div>
+  </div>
+             

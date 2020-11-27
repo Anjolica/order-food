@@ -1,0 +1,86 @@
+<header>
+  <div class="container-fluid content-wrapper mx-0">
+
+    <a href="#" target="_blank">
+      Shahi tandoor
+      <!-- <img src="assets/images/logo.png" style="height:54px" class=" hidden-xs">
+      <img src="assets/images/logo.png" style="height:54px" class="hidden-md hidden-lg hidden-sm"> -->
+    </a>
+
+  </div>
+
+</header>
+
+<div id="Content" class="homepage-full main-content-wrap" style="min-height: 554px;">
+
+  <section class="content-wrapper main-content main-content-inside clear-fix">
+
+    <div class="row">
+      <div class="login-panel clearfix" style="margin-top: 38px;">
+        <div class="col-sm-6 login-panel-left hidden-xs">
+          <img src="assets/images/GSTLoginPanel.jpg" class="img-responsive" />
+        </div>
+        <section id="loginForm" class="col-sm-6 col-xs-12">
+          <h3>Login</h3>
+
+          <form [formGroup]="loginForm" (ngSubmit)="loginAction()" role="form">
+            <div class="row">
+
+              <div class="frm__control">
+                <input autocomplete="off" class="form-control" data-val="true"
+                  data-val-required="Please enter name" placeholder="Enter name"
+                  formControlName="username" autofocus [(ngModel)]="username" required />
+                <span style="color:red">
+                  <ul class="parsley-errors-list filled"
+                    *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+                    <li class="parsley-required" *ngIf="f.username.errors.required">Username required.</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="frm__control">
+                <input type="password" autocomplete="off" class="form-control" data-val="true"
+                  data-val-required="Please enter Password" placeholder="Password" formControlName="password"
+                  [(ngModel)]="password" required />
+                <span style="color:red">
+                  <ul class="parsley-errors-list filled"
+                    *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+                    <li class="parsley-required" *ngIf="f.password.errors.required">Password required.</li>
+                  </ul>
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class=" col-md-offset-4">
+                <input type="button" (click)="loginAction()" [disabled]="!loginForm.valid || isWebRequest" value="Login"
+                  class="btn btn-primary float-right" />
+              </div>
+            </div>
+            
+
+           
+
+          </form>
+         
+        </section>
+
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<footer>
+  <div class="content-wrapper footer-secondary clearfix">
+
+    <div class="copyright-block">
+      <p class="copyright-text"></p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,180 @@
+<div class="main-content">
+  <nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand py-0 text-center pull-left" href="/home" style="float: left;">
+        Hotel Name & Logo
+        <!-- <img src="assets/images/logo.png" class="navbar-brand-img" alt=""> -->
+      </a>
+      <ul class="nav" style="float: right;">
+        <li class="nav-item">
+          <a class="nav-link text-dark" [routerLink]="['/']">
+            <div class="media align-items-center">
+              <span>Logout</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="container-fluid mt--7 mt-3 mb-5">
+      <div class="row">
+        <div class="col-1"></div>
+
+        <div class="col-10">
+
+          <div class="card border-left-primary shadow py-2" style="height:120%;">
+            <div class="card-body">
+              <form [formGroup]="addOrderForm">
+                <div class="header" style="font-size:25px;font-weight:bold;text-align: center;">
+                  Add Order
+                </div>
+                   <br>
+                 
+                    <div class="form-group row">
+  
+                      <div class="col-sm-1"></div>
+                      <button class="btn btn-light" [ngClass]="show ? 'success' : 'danger'" (click)="show=true" style="width:120px;border-right:1px solid lightgrey;">New</button>
+                      <button class="btn btn-light" [ngClass]="!show ? 'success' : 'danger'" (click)="existing()" style="width:120px;border-right:1px solid lightgrey;">Existing</button>
+
+                    </div>
+
+                    <br>
+
+                    <div class="form-group row">
+                      <div class="col-sm-1"></div>
+                      <label for="tableNo" class="col-sm-2 col-form-label addLabels">
+                        <input type="checkbox" (change)="isChecked=!isChecked">Table No.:</label>
+                      <div class="col-sm-8">
+                        
+                        <input *ngIf="show && !isChecked" class="form-control" formControlName="tableNo" [(ngModel)]="tableNo" type="text" placeholder="Table No." style="height:50px;">
+                       
+                        <div *ngIf="show">
+                          <div *ngIf="addOrderForm.get('tableNo').invalid && (addOrderForm.get('tableNo').dirty || addOrderForm.get('tableNo').touched)"
+                          class="alert alert-danger">
+                              
+                                Table No. is required.
+                            
+                          </div>
+                        </div>
+                       
+                        <select *ngIf="!show && !isChecked" class="form-control" formControlName="bookedTableNo" [(ngModel)]="bookedTableNo" style="height:50px;">
+                          <option>select table</option>
+                          <option *ngFor="let tables of bookedTable">{{tables}}</option>
+                      
+                        </select>
+
+
+                      </div>
+                      <div class="col-sm-1"></div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-sm-1"></div>
+                      <label for="cust_name" class="col-sm-2 col-form-label addLabels">
+                        Customer Name:</label>
+                      <div class="col-sm-8">
+                        
+                        <input *ngIf="isChecked" class="form-control" formControlName="cust_name" [(ngModel)]="cust_name" type="text" placeholder="Customer name" style="height:50px;">
+                       
+                      </div>
+                      
+                      <div class="col-sm-1"></div>
+                    </div>
+      
+                  <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label for="item" class="col-sm-2 col-form-label addLabels">Item<span style="color:red">*</span>:</label>
+                    <div class="col-sm-8">
+                      <select formControlName="foodItems" class="form-control" [(ngModel)]="foodItems" style="height:50px;">
+                        <option>select food item</option>
+                        <option *ngFor="let food of foodmenu">{{food}}</option>
+                        
+                      </select>
+                    </div>
+                    <div class="col-sm-1"></div>
+                  </div>
+      
+                  <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label for="quantity" class="col-sm-2 col-form-label addLabels">Quantity<span style="color:red">*</span>:</label>
+                    <div class="col-sm-8">
+                      <input type="text" formControlName="quantity" class="form-control" [(ngModel)]="quantity" style="height:50px;">
+                    </div>
+                    <div class="col-sm-1"></div>
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label for="quantity" class="col-sm-2 col-form-label addLabels">Description:</label>
+                    <div class="col-sm-8">
+                      <input type="number" formControlName="quantity" class="form-control" style="height:50px;">
+                    </div>
+                    <div class="col-sm-1"></div>
+                  </div>
+                  
+                 <br>
+                  <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    
+                    <div class="col-sm-8">
+                      <button type="button" class="btn btn-primary" (click)="addOrder()" style="width:120px;">Add</button>
+                    </div>
+                    <div class="col-sm-1"></div>
+                  </div>
+                  
+      
+              </form>
+
+              <p *ngIf="show" style="margin-left:8%">Table No.{{tableNo}}</p>
+              <p *ngIf="!show" style="margin-left:8%;">Table No.{{bookedTableNo}}</p>
+              <table class="table table-hover" *ngIf="show" style="margin-left:8%;width:83%;">
+                
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Food Item</th>
+                    <th>Quantity</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let foodItems of foodArray;let i=index">
+                    <th>{{i+1}}</th>
+                    <th>{{foodItems.items}}</th>
+                    <td>{{foodItems.quantity}}</td>
+                    <td><a (click)="removeItem(foodItems)"><i class="fa fa-times"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+              <table class="table table-hover" *ngIf="!show" style="margin-left:8%;width:83%;">
+                
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Food Item</th>
+                    <th>Quantity</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let foodItems of foodArray;let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{foodItems.items}}</td>
+                    <td>{{foodItems.quantity}}</td>
+                    <td><a (click)="removeItem(foodItems)"><i class="fa fa-times"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <button style="margin-left:8%" class="btn btn-success" (click)="successMsg()">Place Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-1"></div>
+    </div>
+</div>
+           

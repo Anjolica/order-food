@@ -1,0 +1,134 @@
+<div class="main-content">
+
+  <nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand py-0 text-center pull-left" href="/home" style="float: left;">
+        Hotel Name & Logo
+        <!-- <img src="assets/images/logo.png" class="navbar-brand-img" alt=""> -->
+      </a>
+      <ul class="nav" style="float: right;">
+        <!-- <li class="nav-item">
+          <button (click)="viewActivity()" class="mr-3 btn btn-default rounded-0">Change password</button> 
+          <a class="nav-link text-dark" (click)="viewActivity()">
+            <div class="media align-items-center">
+              <span  style="color:blue"><abbr title="Change password">Change password</abbr></span>
+            </div>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link text-dark" [routerLink]="['/']">
+            <div class="media align-items-center">
+              <span>Logout</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+
+  <div class="container-fluid mt--7 mb-5">
+    
+    <div class="row">
+      <div class="col" *ngIf="!showFood">
+        <div class="card border-left-primary shadow py-2" style="height:150%;">
+          <div class="card-body"(click)="openAddOrder()">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Add Order</div>
+                <div class="h3 mb-0 font-weight-bold text-gray-800">{{open_po_cnt}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-file-invoice-dollar fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col" *ngIf="!showFood">
+        <div class="card border-left-success shadow py-2" style="height:150%;">
+          <div class="card-body" (click)="openBill()">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Generate Bill</div>
+                <div class="h3 mb-0 font-weight-bold text-gray-800">{{close_po_cnt}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fa fa-id-card fa-2x text-gray-300" style="color:red"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" *ngIf="showFood">
+        <div class="card border-left-success shadow py-2" style="height:150%;">
+          <div class="card-body" (click)="openFoodPage()">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Add Food</div>
+                <div class="h3 mb-0 font-weight-bold text-gray-800">{{close_po_cnt}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fa fa-id-card fa-2x text-gray-300" style="color:red"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" *ngIf="showTable">
+        <div class="card border-left-success shadow py-2" style="height:150%;">
+          <div class="card-body" (click)="openFoodPage()">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Add Table</div>
+                <div class="h3 mb-0 font-weight-bold text-gray-800">{{close_po_cnt}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fa fa-id-card fa-2x text-gray-300" style="color:red"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div>
+  </div>
+</div>
+
+ 
+<div class="row" style="margin-top:100px;">
+  <div class="col" *ngIf="!showFood">
+    <div class="card border-left-success shadow py-2" >
+      <div class="card-body" (click)="closeList()">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <input type="date" style="width:80%;">
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary">Get Report</button>
+         </div>
+          <!-- <div class="col-auto">
+            <i class="fa fa-times fa-2x text-gray-300" style="color:red"></i>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+
+
+              
+            
+
+       
+
+    
+
+          
+
+</div>

@@ -1,0 +1,169 @@
+<div id="print-section" class="modal-dialog modal-sm modal-dialog-centered" style="margin:5px;border:1px solid lightgray;" role="document">
+  <div class="modal-content" style="border: none !important;">
+    <div class="modal-header" style="background-color:lightblue;padding: 0%;margin:10px;">
+     
+      <p style="font-size:30px;margin-left:35%;font-weight:bold;">Tax Invoice</p>
+      
+      <span style="float:right;">
+         <p style="font-size: 15px;font-weight: bold;margin:0px;">Invoice No.: -------</p>
+         
+         <p style="font-size: 15px;font-weight: bold;margin:0px;">Date:--------</p>
+      </span>
+        
+      
+     </div>
+     <div>
+       <p style="margin-left:10px;float:left;">Logo </p>
+       <p style="margin-left:30%;font-size:25px;font-weight: bold;">JAYAKA KA TADKA</p>
+    
+     </div>
+
+    <div class="modal-body">
+      <div class="card">
+        
+        <div class="card-body">
+          
+              <div>
+                <label for="example" class="col-form-label" style="font-weight: bold;font-size: 15px;">CUSTOMER'S NAME:-</label>    
+              </div>
+           
+              <div>
+                <label for="example" class="col-form-label">Phone Number:-</label>
+              </div>
+           
+
+              <table class="table table-bordered">
+                <thead>
+                  <th>Particulars</th>
+                  <th>Rate</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>sss</td>
+                  
+                    <td>11</td>
+                 
+                    <td>12</td>
+                    <td>50</td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                  
+                    <td></td>
+                    <td>Total</td>
+                    <td>--</td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                  
+                    <td></td>
+                    <td><p style="font-weight: bold;margin-left:15px;">Add: CGST @</p></td>
+                    <td>--</td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                  
+                    <td></td>
+                    <td><p style="font-weight: bold;margin-left:15px;">Add: SGST @</p></td>
+                    <td>--</td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                  
+                    <td></td>
+                    <td style="background-color: cadetblue;">Grand Total</td>
+                    <td style="background-color: cadetblue;">--</td>
+                  </tr>
+
+                  
+                  
+
+
+                </tbody>
+              </table>
+
+            <!-- <div class="row">
+                <div class="col" style="padding:0px;">
+                  <div class="receiptHeader">Particulars</div>
+                  <div class="content">
+                     abc
+                     <br>
+                     <br>
+                  </div>
+
+                </div>
+                <div class="col" style="padding:0px;">
+                  <div class="receiptHeader">Qty</div>
+                  <div class="content">
+                    2
+                    <br>
+                    
+                    <div style="border-top:1px solid black;">Total</div>
+
+                    
+                  
+                 </div>
+                  <div style="border-bottom:1px solid black;border-left:1px solid black;">
+                     <p style="font-weight: bold;margin-left:15px;">Add: CGST @</p>
+                     <p style="font-weight: bold;margin-left:15px;">Add: SGST @</p>
+                     <p style="font-weight: bold;margin-left:15px;background-color: cornflowerblue;">Grand Total</p>
+                  </div>
+                </div>
+
+                <div class="col" style="padding:0px;">
+                  <div class="receiptHeader">Rate</div>
+                  <div class="content">
+                    12
+                    <br>
+                    <div style="border-top:1px solid black;">0.0</div>
+          
+                  </div>
+                 <div style="border-bottom:1px solid rgb(182, 175, 175);">
+                   <p style="margin-left:15px;">--%</p>
+                   <p style="margin-left:15px;">--%</p>
+                   <p style="background-color: cornflowerblue;">=</p>
+                 </div>
+                </div>
+
+                <div class="col" style="padding:0px;">
+                  <div class="receiptHeader">Amount</div>
+                  <div class="content">
+                  10
+                  <br>
+                  <div style="border-top:1px solid black;">0.0</div>
+                  
+                 </div>
+                  <div style="border-bottom:1px solid black;border-right: 1px solid black;">
+                   <p style="margin-left:70%;">--</p>
+                   <p style="margin-left:70%;">--</p>
+                   <span style="background-color: cornflowerblue;"><p style="margin-left:70%;">30</p></span>
+                  </div>
+                </div>
+            </div> -->
+
+
+            <div>
+               <p>Our Specials</p>
+               <p>1.Matan Biryani</p>
+            </div>
+            
+        </div>
+      </div>
+              
+      
+        
+         
+          <div class="text-center mt-3">
+            <button type="button" class="ml-3 btn btn-success rounded-0" printSectionId="print-section" ngxPrint>Print</button>
+            <button type="button" class="ml-3 btn btn-danger rounded-0" style="height:37px;" (click)="closeModal()">Cancel</button>
+          </div>
+      
+    </div>
+  </div>
+</div>
